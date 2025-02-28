@@ -1,0 +1,233 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 100vw;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  margin: 2rem auto;
+  max-width: 1200px; /* Increased the max-width for a wider container */
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #1e293b, #1e40af);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.bg-cold {
+  background: linear-gradient(to bottom right, #0891b2, #1e40af);
+}
+
+.bg-warm {
+  background: linear-gradient(to bottom right, #ca8a04, #b91c1c);
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.top-buttons button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.top-buttons button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.forecast-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.forecast-title {
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.8rem; /* Increased font size for better readability */
+}
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.forecast-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.forecast-item:hover {
+  transform: scale(1.05);
+}
+
+.forecast-icon {
+  width: 4rem;
+}
+
+.forecast-temperature {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 450px;
+  margin: 1rem auto;
+  padding: 0.5rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #374151;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.search-icon,
+.location-icon {
+  color: #1e40af;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-icon:hover,
+.location-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Temperature Display */
+.temp-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.temp-icon {
+  width: 5rem;
+}
+
+.temp-value {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Details Section */
+.temp-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.temp-detail-value {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* New Unit Button Class */
+.unit-button {
+  display: flex; /* Changed to flex to make elements appear in a row */
+  justify-content: space-around; /* Space out items evenly */
+  align-items: center; /* Center items vertically */
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1.5rem;
+  }
+
+  .top-buttons {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .forecast-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-container {
+    flex-direction: row;
+    max-width: 100%;
+  }
+
+  .temp-main {
+    flex-direction: column;
+  }
+
+  .forecast-title {
+    font-size: 1.6rem; 
+  }
+}
+
+@media (max-width: 500px) {
+  .forecast-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+}
