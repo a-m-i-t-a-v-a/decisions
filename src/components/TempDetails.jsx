@@ -9,7 +9,7 @@ import { addFavorite, removeFavorite } from "../services/favoriteCities";
 
 const TempDetails = ({
   weather: {
-    city, 
+    name, 
     details,
     temp,
     icon,
@@ -25,13 +25,13 @@ const TempDetails = ({
 }) => {
   const dispatch = useDispatch();
   const favoriteCities = useSelector((state) => state.favorites.cities);
-  const isFavorite = favoriteCities.includes(city);
+  const isFavorite = favoriteCities.includes(name);
 
   const handleFavoriteToggle = () => {
-    console.log("Toggling favorite:", city);
-    isFavorite ? dispatch(removeFavorite(city)) : dispatch(addFavorite(city));
+    console.log("Toggling favorite:", name);
+    isFavorite ? dispatch(removeFavorite(name)) : dispatch(addFavorite(name));
   };
-
+  dispatch(addFavorite("Oslo"))
   const verticalDetails = [
     {
       id: 1,
