@@ -1,11 +1,11 @@
 body {
   font-family: Arial, sans-serif;
-  width: 100vw; /* Full viewport width */
+  width: 100vw;
   color: white;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  min-height: 100vh; /* Full height of the viewport */
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 :root {
@@ -23,13 +23,13 @@ body {
 }
 
 .app-container {
-  width: 100%; 
-  min-height: 100vh; 
+  width: 100%;
+  min-height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding: 2rem 1rem; 
-  box-sizing: border-box; /* Ensure padding does not increase width */
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
 .dark-light {
@@ -49,25 +49,45 @@ body {
 }
 
 .bg-cold {
-  background: linear-gradient(to right, rgba(0, 198, 251, 0.8), rgba(0, 94, 234, 0.8)); /* Soften the gradient */
+  background: linear-gradient(
+    to right,
+    rgba(0, 198, 251, 0.8),
+    rgba(0, 94, 234, 0.8)
+  );
 }
 
 .bg-warm {
-  background: linear-gradient(to right, rgba(255, 126, 95, 0.8), rgba(254, 180, 123, 0.8)); /* Soften the gradient */
+  background: linear-gradient(
+    to right,
+    rgba(255, 126, 95, 0.8),
+    rgba(254, 180, 123, 0.8)
+  );
 }
 
 [data-theme="dark"] .bg-cold {
-  background: linear-gradient(to right, rgba(0, 34, 68, 0.8), rgba(0, 31, 63, 0.8)); /* Darker tones for dark theme */
+  background: linear-gradient(
+    to right,
+    rgba(0, 34, 68, 0.8),
+    rgba(0, 31, 63, 0.8)
+  );
 }
 
 [data-theme="dark"] .bg-warm {
-  background: linear-gradient(to right, rgba(102, 45, 140, 0.8), rgba(237, 30, 121, 0.8)); /* Darker tones for dark theme */
+  background: linear-gradient(
+    to right,
+    rgba(102, 45, 140, 0.8),
+    rgba(237, 30, 121, 0.8)
+  );
+}
+
+.error-message {
+  color: red;
 }
 
 .top-buttons {
   display: flex;
   justify-content: center;
-  gap: 12px; 
+  gap: 12px;
   margin-bottom: 1rem;
 }
 
@@ -78,7 +98,7 @@ body {
   background: rgba(255, 255, 255, 0.2);
   color: white;
   font-weight: bold;
-  font-size: 1rem; 
+  font-size: 1rem;
   border: none;
   transition: 0.3s ease;
 }
@@ -191,14 +211,14 @@ body {
 .details-text {
   font-size: 1.3rem;
   font-weight: 600;
-  color:rgb(86, 140, 194); 
+  color: rgb(86, 140, 194);
 }
 
 .temp-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%; 
+  width: 100%;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -221,7 +241,7 @@ body {
 .temp-value {
   font-size: 3rem;
   font-weight: 700;
-  color: #f1f5f9; 
+  color: #f1f5f9;
 }
 
 .temp-right {
@@ -242,12 +262,12 @@ body {
   align-items: center;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #e2e8f0; 
+  color: #e2e8f0;
 }
 
 .icon-detail {
   margin-right: 0.5rem;
-  color: #38bdf8; 
+  color: #38bdf8;
 }
 
 .horizontal-details {
@@ -262,24 +282,24 @@ body {
 }
 
 .icon-hr {
-  color: #facc15; 
+  color: #facc15;
 }
 
 .title-of-temp {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #f8fafc; 
+  color: #f8fafc;
 }
 
 .temp-detail-value {
   font-weight: 600;
-  color: #facc15; 
+  color: #facc15;
 }
 
 .favorite-button {
   display: block;
-  width: 60%; 
-  margin: 1rem auto 0; 
+  width: 60%;
+  margin: 1rem auto 0;
   padding: 0.6rem;
   font-size: 1rem;
   font-weight: 600;
@@ -289,7 +309,7 @@ body {
   background: linear-gradient(to right, #3b82f6, #06b6d4);
   color: #ffffff;
   transition: 0.3s ease-in-out;
-  text-align: center; 
+  text-align: center;
 }
 
 .favorite-button:hover {
@@ -349,7 +369,7 @@ body {
   }
 
   .forecast-title {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
   }
 }
 

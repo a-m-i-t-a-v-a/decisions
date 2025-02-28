@@ -7,6 +7,7 @@ import { addFavorite, removeFavorite } from "../services/favoriteCities";
 const Input = ({ weather, setQuery, setUnits }) => {
   const name = weather?.name || "";
   const [city, setCity] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const favoriteCities = useSelector((state) => state.favorites.cities);
   const isFavorite = favoriteCities.includes(name);
@@ -16,6 +17,15 @@ const Input = ({ weather, setQuery, setUnits }) => {
     isFavorite ? dispatch(removeFavorite(name)) : dispatch(addFavorite(name));
   };
   const handleSearchQuery = () => {
+    if (!city.trim()) {
+      setError("Please enter a city name.");
+      return;
+    }
+    if (!/^[a-zA-Z\s]+$/.test(city)) {
+      setError("Invalid city name.");
+      return;
+    }
+    setError("");
     if (city !== "") setQuery({ q: city });
   };
   const handleLocationClick = () => {
@@ -47,6 +57,7 @@ const Input = ({ weather, setQuery, setUnits }) => {
           onClick={handleLocationClick}
         />
       </div>
+      {error && <p className="error-message">{error}</p>}
       <div className="units-container">
         <button className="unit-button" onClick={() => setUnits("metric")}>
           C
