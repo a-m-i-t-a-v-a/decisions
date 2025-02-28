@@ -36,7 +36,7 @@ function App() {
     <div className={`app-container ${getBackgroundClass()}`}>
       <ThemeToggle theme={theme} setTheme={setTheme} />
       <TopButtons setQuery={setQuery} />
-      <Input setQuery={setQuery} setUnits={setUnits} />
+      <Input weather={weather} setQuery={setQuery} setUnits={setUnits} />
       {weather && (
         <>
           <TimeAndLocation weather={weather} />

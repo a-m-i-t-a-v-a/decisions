@@ -1,15 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from "react-redux";
 import { BiSolidDropletHalf } from "react-icons/bi";
 import { FaThermometerEmpty } from "react-icons/fa";
 import { FiWind } from "react-icons/fi";
 import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import { addFavorite, removeFavorite } from "../services/favoriteCities";
 
 const TempDetails = ({
   weather: {
-    name,
     details,
     temp,
     icon,
@@ -23,14 +20,6 @@ const TempDetails = ({
   },
   units,
 }) => {
-  const dispatch = useDispatch();
-  const favoriteCities = useSelector((state) => state.favorites.cities);
-  const isFavorite = favoriteCities.includes(name);
-
-  const handleFavoriteToggle = () => {
-    console.log("Toggling favorite:", name);
-    isFavorite ? dispatch(removeFavorite(name)) : dispatch(addFavorite(name));
-  };
 
   const verticalDetails = [
     {
@@ -116,10 +105,6 @@ const TempDetails = ({
           </div>
         ))}
       </div>
-
-      <button className="favorite-button" onClick={handleFavoriteToggle}>
-        {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-      </button>
     </div>
   );
 };
