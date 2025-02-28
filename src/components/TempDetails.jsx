@@ -28,6 +28,7 @@ const TempDetails = ({
   const isFavorite = favoriteCities.includes(city);
 
   const handleFavoriteToggle = () => {
+    console.log("Toggling favorite:", city);
     isFavorite ? dispatch(removeFavorite(city)) : dispatch(addFavorite(city));
   };
 
