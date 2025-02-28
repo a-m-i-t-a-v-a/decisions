@@ -9,7 +9,7 @@ import { addFavorite, removeFavorite } from "../services/favoriteCities";
 
 const TempDetails = ({
   weather: {
-    name, 
+    name,
     details,
     temp,
     icon,
@@ -31,7 +31,7 @@ const TempDetails = ({
     console.log("Toggling favorite:", name);
     isFavorite ? dispatch(removeFavorite(name)) : dispatch(addFavorite(name));
   };
-  dispatch(addFavorite("Oslo"))
+
   const verticalDetails = [
     {
       id: 1,
@@ -83,20 +83,25 @@ const TempDetails = ({
   return (
     <div>
       <div className="temp-details-container">
-        <p>{details}</p>
+        <p className="details-text">{details}</p> 
       </div>
 
       <div className="temp-main">
-        <img src={icon} alt="weather icon" className="temp-icon" />
-        <p className="temp-value">{`${temp.toFixed()}°`}</p>
+        <div className="temp-left">
+          <img src={icon} alt="weather icon" className="temp-icon" />
+          <p className="temp-value">{`${temp.toFixed()}°`}</p>
+        </div>
 
-        <div className="temp-details-list">
-          {verticalDetails.map((val) => (
-            <div key={val.id} className="detail-item">
-              <val.Icon size={18} className="icon-detail" />
-              {val.title}: <span className="temp-value">{val.value}</span>
-            </div>
-          ))}
+        <div className="temp-right">
+          <div className="temp-details-list">
+            {verticalDetails.map((val) => (
+              <div key={val.id} className="detail-item">
+                <val.Icon size={18} className="icon-detail" />
+                {val.title}:{" "}
+                <span className="temp-detail-value">{val.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -111,6 +116,7 @@ const TempDetails = ({
           </div>
         ))}
       </div>
+
       <button className="favorite-button" onClick={handleFavoriteToggle}>
         {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
       </button>

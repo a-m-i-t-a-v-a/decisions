@@ -11,8 +11,7 @@ body {
 }
 
 .app-container {
-  margin: 2rem auto;
-  max-width: 1200px; 
+  width: 100%; /* Full width */
   padding: 2rem;
   background: linear-gradient(to bottom right, #1e293b, #1e40af);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
@@ -31,7 +30,7 @@ body {
 .top-buttons {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 12px; /* Spacing between buttons */
   margin-bottom: 1rem;
 }
 
@@ -42,6 +41,7 @@ body {
   background: rgba(255, 255, 255, 0.2);
   color: white;
   font-weight: bold;
+  font-size: 1rem; /* Uniform font size */
   border: none;
   transition: 0.3s ease;
 }
@@ -69,7 +69,7 @@ body {
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
 }
 
 .forecast-container {
@@ -145,29 +145,51 @@ body {
   transform: scale(1.2);
 }
 
+.temp-details-container {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.details-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .temp-main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%;
+  padding: 1rem;
+}
+
+.temp-left {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 0.5rem; 
 }
 
 .temp-icon {
-  width: 5rem;
+  width: 3rem; 
+  height: 3rem;
 }
 
 .temp-value {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
+}
+
+.temp-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .temp-details-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: center;
 }
 
 .detail-item {
@@ -178,16 +200,85 @@ body {
   color: #ffffff;
 }
 
+.icon-detail {
+  margin-right: 0.3rem;
+}
+
+.temp-value {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.temp-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.temp-detail-title {
+  font-weight: 500;
+  margin-right: 0.3rem;
+}
+
 .temp-detail-value {
   font-weight: 600;
   color: #ffffff;
 }
 
+.horizontal-details {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.title-of-temp {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.icon-detail, .icon-hr {
+  margin-right: 0.5rem;
+}
+
 .unit-button {
   display: flex; 
-  justify-content: space-around; 
+  justify-content: center; 
   align-items: center; 
   margin-top: 1rem;
+  gap: 12px; 
+}
+
+.unit-button button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem; 
+  border: none;
+  transition: 0.3s ease;
+}
+
+.unit-button button:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 @media (max-width: 768px) {
