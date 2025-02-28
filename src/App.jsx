@@ -11,6 +11,12 @@ function App() {
   const [query, setQuery] = useState({ q: "London" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const getBackgroundClass = () => {
     if (!weather) return "bg-cold";
@@ -28,7 +34,7 @@ function App() {
 
   return (
     <div className={`app-container ${getBackgroundClass()}`}>
-      <ThemeToggle/>
+      <ThemeToggle theme={theme} setTheme={setTheme} />
       <TopButtons setQuery={setQuery} />
       <Input setQuery={setQuery} setUnits={setUnits} />
       {weather && (
