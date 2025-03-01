@@ -11,7 +11,7 @@ const getWeatherData = async (info, searchParams) => {
     return await res.json();
   } catch (error) {
     console.error("Failed to fetch weather data:", error);
-    return null; // Prevents crashes
+    return null;
   }
 };
 
@@ -19,15 +19,12 @@ const iconUrlFromCode = (icon) =>
   `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
 const formatToLocalTime = (sec, offset, format = "full") => {
-    if (!sec || typeof sec !== "number") return "Invalid DateTime"; // Handle missing values
-  
-    // Convert seconds to milliseconds (JavaScript works with milliseconds)
+    if (!sec || typeof sec !== "number") return "Invalid DateTime";
+ 
     const utcTime = new Date(sec * 1000);
   
-    // Adjust the UTC time based on the provided offset (in seconds)
     const localTime = new Date(utcTime.getTime() + offset * 1000);
   
-    // Format options
     const options = {
       weekday: format === "full" ? "long" : undefined,
       year: "numeric",
@@ -35,14 +32,14 @@ const formatToLocalTime = (sec, offset, format = "full") => {
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-      hour12: true, // AM/PM format
+      hour12: true,
     };
   
     return localTime.toLocaleString("en-US", options);
   };
 
 const formatCurrent = (data) => {
-  if (!data) return null; // Handle API failures gracefully
+  if (!data) return null; 
 
   const {
     coord: { lat, lon },
@@ -68,7 +65,7 @@ const formatCurrent = (data) => {
     speed,
     lat,
     lon,
-    sunrise: formatToLocalTime(sunrise, timezone, "hh:mm a"), // Fixed timezone handling
+    sunrise: formatToLocalTime(sunrise, timezone, "hh:mm a"), 
     sunset: formatToLocalTime(sunset, timezone, "hh:mm a"),
     details,
     icon: iconUrlFromCode(icon),
@@ -79,7 +76,7 @@ const formatCurrent = (data) => {
 };
 
 const formatForecastWeather = (secs, offset, data) => {
-  if (!data) return { hourly: [], daily: [] }; // Handle API failure gracefully
+  if (!data) return { hourly: [], daily: [] }; 
 
   // Hourly forecast: Get next 5 readings
   const hourly = data
@@ -109,7 +106,7 @@ const getFormattedWeatherData = async (searchParams) => {
   const currentWeatherData = await getWeatherData("weather", searchParams);
   const formattedCurrentWeather = formatCurrent(currentWeatherData);
 
-  if (!formattedCurrentWeather) return null; // Handle API failures
+  if (!formattedCurrentWeather) return null; 
 
   const { dt, lat, lon, timezone } = formattedCurrentWeather;
 
