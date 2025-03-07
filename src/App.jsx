@@ -9,7 +9,7 @@ import ThemeToggle from "./components/ThemeToggle";
 import { useTheme } from "./theme/ThemeContext"; 
 
 function App() {
-  const [query, setQuery] = useState({ q: "London" });
+  const [query, setQuery] = useState({ q: "Oslo" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const { theme } = useTheme(); 

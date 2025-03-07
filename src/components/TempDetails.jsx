@@ -20,7 +20,6 @@ const TempDetails = ({
   },
   units,
 }) => {
-
   const verticalDetails = [
     {
       id: 1,
@@ -72,7 +71,10 @@ const TempDetails = ({
   return (
     <div>
       <div className="temp-details-container">
-        <p className="details-text">Conditions : {details}</p> 
+        <p className="details-text">
+          <span className="details-label">Conditions :</span>
+          <span className="details-value">{details}</span>
+        </p>
       </div>
 
       <div className="temp-main">

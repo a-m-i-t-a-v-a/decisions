@@ -32,7 +32,7 @@ const formatToLocalTime = (sec, offset, format = "full") => {
     minute: "2-digit",
     second: "2-digit",
     hour12: true,
-    timeZone: "UTC", 
+    timeZone: "UTC",
   };
   return localTime.toLocaleString("en-US", options);
 };
@@ -106,7 +106,6 @@ const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = formatCurrent(currentWeatherData);
 
   if (!formattedCurrentWeather) return null;
-
   const { dt, lat, lon, timezone } = formattedCurrentWeather;
 
   const forecastData = await getWeatherData("forecast", {
@@ -119,7 +118,6 @@ const getFormattedWeatherData = async (searchParams) => {
     timezone,
     forecastData?.list
   );
-
   return { ...formattedCurrentWeather, ...formattedForecast };
 };
 
