@@ -72,7 +72,7 @@ const TempDetails = ({
   return (
     <div>
       <div className="temp-details-container">
-        <p className="details-text">{details}</p> 
+        <p className="details-text">Conditions : {details}</p> 
       </div>
 
       <div className="temp-main">
