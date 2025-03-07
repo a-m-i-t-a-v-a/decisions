@@ -31,7 +31,7 @@ function App() {
         <>
           <TimeAndLocation weather={weather} />
           <TempDetails weather={weather} units={units} />
-          <Forecast title="3 hour step forecast" data={weather.hourly} />
+          <Forecast title="3 hour forecast" data={weather.hourly} />
           <Forecast title="5 day forecast" data={weather.daily} />
         </>
       )}
