@@ -23,7 +23,6 @@ const formatToLocalTime = (sec, offset, format = "full") => {
 
   const utcTime = new Date(sec * 1000);
   const localTime = new Date(utcTime.getTime() + offset * 1000);
-
   const options = {
     weekday: format === "full" ? "long" : undefined,
     year: "numeric",
@@ -31,12 +30,12 @@ const formatToLocalTime = (sec, offset, format = "full") => {
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit", 
+    second: "2-digit",
     hour12: true,
     timeZone: "UTC", 
   };
-
   return localTime.toLocaleString("en-US", options);
+
 };
 
 const formatCurrent = (data) => {
