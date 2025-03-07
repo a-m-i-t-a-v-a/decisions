@@ -35,7 +35,6 @@ const formatToLocalTime = (sec, offset, format = "full") => {
     timeZone: "UTC", 
   };
   return localTime.toLocaleString("en-US", options);
-
 };
 
 const formatCurrent = (data) => {

@@ -8,7 +8,7 @@ body {
 }
 
 :root {
-  --background-color:rgb(35, 51, 143);
+  --background-color: rgb(35, 51, 143);
   --text-color: #000;
   --button-bg: #ddd;
   --button-text: #000;
@@ -112,6 +112,11 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: 0.3s ease-in-out;
+}
+
+.title {
+  color: var(--text-color);
+  font-size: 1rem;
 }
 
 .forecast-item:hover {
