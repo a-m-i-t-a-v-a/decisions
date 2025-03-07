@@ -1,7 +1,6 @@
 body {
   font-family: Arial, sans-serif;
   width: 100vw;
-  color: white;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -10,14 +9,14 @@ body {
 
 :root {
   --background-color: #f5f5f5;
-  --text-color: #333;
+  --text-color: #000;
   --button-bg: #ddd;
   --button-text: #000;
 }
 
 [data-theme="dark"] {
   --background-color: #121212;
-  --text-color: #f5f5f5;
+  --text-color: #fff;
   --button-bg: #333;
   --button-text: #fff;
 }
@@ -48,38 +47,6 @@ body {
   opacity: 0.8;
 }
 
-.bg-cold {
-  background: linear-gradient(
-    to right,
-    rgba(0, 198, 251, 0.8),
-    rgba(0, 94, 234, 0.8)
-  );
-}
-
-.bg-warm {
-  background: linear-gradient(
-    to right,
-    rgba(255, 126, 95, 0.8),
-    rgba(254, 180, 123, 0.8)
-  );
-}
-
-[data-theme="dark"] .bg-cold {
-  background: linear-gradient(
-    to right,
-    rgba(0, 34, 68, 0.8),
-    rgba(0, 31, 63, 0.8)
-  );
-}
-
-[data-theme="dark"] .bg-warm {
-  background: linear-gradient(
-    to right,
-    rgba(102, 45, 140, 0.8),
-    rgba(237, 30, 121, 0.8)
-  );
-}
-
 .error-message {
   color: red;
 }
@@ -95,8 +62,8 @@ body {
   padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--button-bg);
+  color: var(--text-color);
   font-weight: bold;
   font-size: 1rem;
   border: none;
@@ -117,6 +84,7 @@ body {
 
 .forecast-header {
   display: flex;
+  color: var(--text-color);
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -124,7 +92,7 @@ body {
 
 .forecast-title {
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-color);
   text-transform: uppercase;
   font-size: 1.8rem;
 }
@@ -155,6 +123,7 @@ body {
 }
 
 .forecast-temperature {
+  color: var(--text-color);
   font-weight: 700;
   font-size: 1.4rem;
 }
@@ -211,7 +180,7 @@ body {
 .details-text {
   font-size: 1.3rem;
   font-weight: 600;
-  color: rgb(86, 140, 194);
+  color: var(--text-color);
 }
 
 .temp-main {
@@ -241,7 +210,7 @@ body {
 .temp-value {
   font-size: 3rem;
   font-weight: 700;
-  color: #f1f5f9;
+  color: var(--text-color);
 }
 
 .temp-right {
@@ -262,12 +231,12 @@ body {
   align-items: center;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #e2e8f0;
+  color: var(--text-color);
 }
 
 .icon-detail {
   margin-right: 0.5rem;
-  color: #38bdf8;
+  color: var(--text-color);
 }
 
 .horizontal-details {
@@ -288,12 +257,12 @@ body {
 .title-of-temp {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #f8fafc;
+  color: var(--text-color);
 }
 
 .temp-detail-value {
   font-weight: 600;
-  color: #facc15;
+  color: var(--text-color);
 }
 
 .favorite-button {
@@ -307,7 +276,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   background: linear-gradient(to right, #3b82f6, #06b6d4);
-  color: #ffffff;
+  color: var(--text-color);
   transition: 0.3s ease-in-out;
   text-align: center;
 }
@@ -328,7 +297,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
-  color: #374151;
+  color: var(--text-color);
   font-weight: bold;
   font-size: 1rem;
   border: none;

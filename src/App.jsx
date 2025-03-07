@@ -6,23 +6,13 @@ import TimeAndLocation from "./components/TimeAndLocation";
 import TopButtons from "./components/TopButtons";
 import getFormattedWeatherData from "./services/weatherService";
 import ThemeToggle from "./components/ThemeToggle";
+import { useTheme } from "./theme/ThemeContext"; 
 
 function App() {
   const [query, setQuery] = useState({ q: "London" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-  useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const getBackgroundClass = () => {
-    if (!weather) return "bg-cold";
-    const thresholdUnits = units === "metric" ? 20 : 60;
-    return weather.temp <= thresholdUnits ? "bg-cold" : "bg-warm";
-  };
+  const { theme } = useTheme(); 
 
   useEffect(() => {
     const getWeather = async () => {
@@ -33,8 +23,8 @@ function App() {
   }, [query, units]);
 
   return (
-    <div className={`app-container ${getBackgroundClass()}`}>
-      <ThemeToggle theme={theme} setTheme={setTheme} />
+    <div className={`app-container ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
+      <ThemeToggle />
       <TopButtons setQuery={setQuery} />
       <Input weather={weather} setQuery={setQuery} setUnits={setUnits} />
       {weather && (

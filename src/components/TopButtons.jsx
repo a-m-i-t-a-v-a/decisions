@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const TopButtons = ({ setQuery }) => {
   const favoriteCities = useSelector((state) => state.favorites.cities);
-  console.log("Favorite Cities:", favoriteCities);
 
   return (
     <div className="top-buttons">
