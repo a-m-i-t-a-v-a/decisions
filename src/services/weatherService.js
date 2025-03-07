@@ -19,27 +19,28 @@ const iconUrlFromCode = (icon) =>
   `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
 const formatToLocalTime = (sec, offset, format = "full") => {
-    if (!sec || typeof sec !== "number") return "Invalid DateTime";
- 
-    const utcTime = new Date(sec * 1000);
-  
-    const localTime = new Date(utcTime.getTime() + offset * 1000);
-  
-    const options = {
-      weekday: format === "full" ? "long" : undefined,
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    };
-  
-    return localTime.toLocaleString("en-US", options);
+  if (!sec || typeof sec !== "number") return "Invalid DateTime";
+
+  const utcTime = new Date(sec * 1000);
+  const localTime = new Date(utcTime.getTime() + offset * 1000);
+
+  const options = {
+    weekday: format === "full" ? "long" : undefined,
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit", 
+    hour12: true,
+    timeZone: "UTC", 
   };
 
+  return localTime.toLocaleString("en-US", options);
+};
+
 const formatCurrent = (data) => {
-  if (!data) return null; 
+  if (!data) return null;
 
   const {
     coord: { lat, lon },
@@ -65,7 +66,7 @@ const formatCurrent = (data) => {
     speed,
     lat,
     lon,
-    sunrise: formatToLocalTime(sunrise, timezone, "hh:mm a"), 
+    sunrise: formatToLocalTime(sunrise, timezone, "hh:mm a"),
     sunset: formatToLocalTime(sunset, timezone, "hh:mm a"),
     details,
     icon: iconUrlFromCode(icon),
@@ -76,7 +77,7 @@ const formatCurrent = (data) => {
 };
 
 const formatForecastWeather = (secs, offset, data) => {
-  if (!data) return { hourly: [], daily: [] }; 
+  if (!data) return { hourly: [], daily: [] };
 
   // Hourly forecast: Get next 5 readings
   const hourly = data
@@ -106,12 +107,20 @@ const getFormattedWeatherData = async (searchParams) => {
   const currentWeatherData = await getWeatherData("weather", searchParams);
   const formattedCurrentWeather = formatCurrent(currentWeatherData);
 
-  if (!formattedCurrentWeather) return null; 
+  if (!formattedCurrentWeather) return null;
 
   const { dt, lat, lon, timezone } = formattedCurrentWeather;
 
-  const forecastData = await getWeatherData("forecast", { lat, lon, units: searchParams.units });
-  const formattedForecast = formatForecastWeather(dt, timezone, forecastData?.list);
+  const forecastData = await getWeatherData("forecast", {
+    lat,
+    lon,
+    units: searchParams.units,
+  });
+  const formattedForecast = formatForecastWeather(
+    dt,
+    timezone,
+    forecastData?.list
+  );
 
   return { ...formattedCurrentWeather, ...formattedForecast };
 };

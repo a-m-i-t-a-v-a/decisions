@@ -13,7 +13,6 @@ const Input = ({ weather, setQuery, setUnits }) => {
   const isFavorite = favoriteCities.includes(name);
 
   const handleFavoriteToggle = () => {
-    console.log("Toggling favorite:", name);
     isFavorite ? dispatch(removeFavorite(name)) : dispatch(addFavorite(name));
   };
   const handleSearchQuery = () => {
